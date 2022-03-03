@@ -1,0 +1,123 @@
+*{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Poppins", sans-serif;
+}
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+@media (min-width: 767px){
+    .container{
+        width: 750px;
+    }
+}
+@media (min-width: 992px){
+    .container{
+        width: 970px;
+    }
+}
+@media (min-width: 1200px){
+    .container{
+        width: 1170px;
+    }
+}
+.templates{
+    padding-top: 200px;
+    position: relative;
+}
+.templates::before{
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(../images/slider-left-dec.jpg);
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+.templates .container header{
+    text-align: center;
+}
+.templates .container header h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+.templates .container header p{
+    font-size: 20px;
+    font-weight: 400;
+}
+.templates .container header a{
+    display: block;
+    margin: 20px 0;
+}
+.templates .container header a button{
+    color: rgb(250,101,177);
+    padding: 15px 20px;
+    background-color: white;
+    border: 1px solid rgb(250,101,177);
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.templates .container header a button:hover{
+    background-color: rgb(250,101,177);
+    color: white;
+}
+.templates .container .boxs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 100px;
+    padding: 10px 0;
+}
+@media (max-width: 991px){
+    .templates .container .boxs{
+        flex-direction: column;
+    }
+}
+.templates .container .boxs .box a{
+    display: block;
+    text-align: center;
+}
+.templates .container .boxs .box a:hover img{
+    box-shadow: 0px 0px 12px 2px rgba(68, 67, 67, 0.26);
+}
+.templates .container .boxs .box a img{
+    width: 100%;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+.templates .container .boxs .box a h4{
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+    margin: 20px 0;
+}
+/* Start Footer */
+footer{
+    background-image: url(../images/footer-bg.jpg);
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    line-height: 2;
+    margin-top: 70px;
+    background-size: cover;
+  }
+  footer h6{
+    font-size: 15px;
+  }
+  /* End Footer */
+  
