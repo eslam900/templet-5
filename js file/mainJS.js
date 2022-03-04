@@ -158,4 +158,28 @@ slider.addEventListener('transitionend',() => {
     }
 })
 
+// hidden the placeholder whene click on inputs
+
+const inputs = document.querySelectorAll(".second form input");
+const textArea = document.querySelector(".second textarea");
+
+inputs.forEach((input) => {
+  input.onfocus = () => {
+    input.setAttribute("place-data", input.getAttribute("placeholder"));
+    input.setAttribute("placeholder", "");
+  };
+  input.onblur = () => {
+    input.setAttribute("placeholder", input.getAttribute("place-data"));
+    input.setAttribute("place-data", "");
+  };
+});
+
+textArea.onfocus = () => {
+  textArea.setAttribute("place-data", textArea.getAttribute("placeholder"));
+  textArea.setAttribute("placeholder", "");
+};
+textArea.onblur = () => {
+  textArea.setAttribute("placeholder", textArea.getAttribute("place-data"));
+  textArea.setAttribute("place-data", "");
+};
 
