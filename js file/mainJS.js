@@ -21,19 +21,21 @@ body.addEventListener("click", (eo) => {
 // after window loaded
 const landingBox = document.querySelectorAll(".landing .boxs .box");
 const allLinks = document.querySelectorAll(".links ul a");
-window.onload = ()=>{
+window.onload = () => {
   landingBox.forEach((box) => {
     box.style.transform = "translateX(0)";
     box.style.opacity = "1";
-    allLinks[0].classList.add("activ")
-  })
-}
+    allLinks[0].classList.add("activ");
+  });
+};
 // window on  scrolling
 const sections = document.querySelectorAll(".section");
 const boxs = document.querySelectorAll(".boxs .box");
 const progressRight = document.querySelectorAll(".progressRight span");
 const progressLift = document.querySelectorAll(".progressLift span");
-const firstProgress = document.querySelectorAll(".firstProgress .progressLift span");
+const firstProgress = document.querySelectorAll(
+  ".firstProgress .progressLift span"
+);
 window.onscroll = () => {
   // add position fixed to header
   if (window.scrollY >= header.offsetTop + 50) {
@@ -118,46 +120,46 @@ const removeBox = () => {
 // click to move slider
 const slider = document.querySelector(".slider");
 const images = document.querySelectorAll(".slider img");
+const link = document.querySelectorAll(".slider a");
 const nexButt = document.getElementById("next");
 const prevButt = document.getElementById("prevent");
-const size = images[0].clientWidth + 12;
+const size = link[0].clientWidth;
 let counter = 1;
 
-slider.style.transform = 'translateX('+ -size * counter +  'px)'
+slider.style.transform = "translateX(" + -size * counter + "px)";
+nexButt.addEventListener("click", () => {
+  clearTimeout(invert);
+  if (counter >= images.length - 5) return;
+  slider.style.transition = "transform 0.3s linear";
+  counter++;
+  slider.style.transform = "translateX(" + -size * counter + "px)";
+});
+prevButt.addEventListener("click", () => {
+  clearTimeout(invert);
+  if (counter <= 0) return;
+  slider.style.transition = "transform 0.3s linear";
+  counter--;
+  slider.style.transform = "translateX(" + -size * counter + "px)";
+});
 
-
-const invert = setInterval(()=>{
-        if (counter >= images.length - 4) return;
-        slider.style.transition = 'transform 0.3s linear' 
-        counter++
-        slider.style.transform = 'translateX('+ -size * counter + 'px)' 
-},3000)
-nexButt.addEventListener('click', () => {
-    if (counter >= images.length - 5) return;
-    slider.style.transition = 'transform 0.3s linear' 
-    counter++
-    slider.style.transform = 'translateX('+ -size * counter + 'px)' 
-})
-prevButt.addEventListener('click', () => {
-    if (counter <= 0) return;
-    slider.style.transition = 'transform 0.3s linear' 
-    counter--
-    slider.style.transform = 'translateX('+ -size * counter + 'px)' 
-})
-
-slider.addEventListener('transitionend',() => {
-    if(images[counter].id === 'endImg'){
-        slider.style.transition = 'none'
-        counter = images.length - 6
-        slider.style.transform = 'translateX('+ -size * counter + 'px)'
-    }
-    if(images[counter].id === 'fristImg'){
-        slider.style.transition = 'none'
-        counter = 1
-        slider.style.transform = 'translateX('+ -size * counter + 'px)'
-    }
-})
-
+slider.addEventListener("transitionend", () => {
+  if (images[counter].id === "endImg") {
+    slider.style.transition = "none";
+    counter = images.length - 6;
+    slider.style.transform = "translateX(" + -size * counter + "px)";
+  }
+  if (images[counter].id === "fristImg") {
+    slider.style.transition = "none";
+    counter = 1;
+    slider.style.transform = "translateX(" + -size * counter + "px)";
+  }
+});
+const invert = setInterval(() => {
+  if (counter >= images.length - 4) return;
+  slider.style.transition = "transform 0.3s linear";
+  counter++;
+  slider.style.transform = "translateX(" + -size * counter + "px)";
+}, 3000);
 // hidden the placeholder whene click on inputs
 
 const inputs = document.querySelectorAll(".second form input");
@@ -182,4 +184,3 @@ textArea.onblur = () => {
   textArea.setAttribute("placeholder", textArea.getAttribute("place-data"));
   textArea.setAttribute("place-data", "");
 };
-
